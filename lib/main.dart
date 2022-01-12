@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: const Color(0xFFF9F9F9),
         fontFamily: 'Nunito',
       ),
       title: 'Task Management',

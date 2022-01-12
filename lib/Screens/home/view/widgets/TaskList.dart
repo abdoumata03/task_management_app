@@ -10,17 +10,14 @@ class TasksList extends StatelessWidget {
     TasksController tasksController = Get.find();
     return GetBuilder<TasksController>(builder: (TasksController controller) {
       return ClipRRect(
-        child: ScrollConfiguration(
-          behavior: MyBehavior(),
-          child: ListView.builder(
-            itemCount: tasksController.tasks!.length,
-            clipBehavior: Clip.none,
-            itemBuilder: (context, index) {
-              return TaskTile(
-                currentIndex: index,
-              );
-            },
-          ),
+        child: ListView.builder(
+          itemCount: tasksController.tasks.length,
+          clipBehavior: Clip.none,
+          itemBuilder: (context, index) {
+            return TaskTile(
+              currentIndex: index,
+            );
+          },
         ),
       );
     });

@@ -8,11 +8,3 @@ extension SizeConfig on int {
 
 }
 
-
-class MyBehavior extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    return child;
-  }
-}

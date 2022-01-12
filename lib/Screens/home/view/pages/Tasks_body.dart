@@ -12,60 +12,64 @@ class TasksBody extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-UsernameController userController = Get.find();
+  UsernameController userController = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: kDefaultPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(height: 30.rh),
-            Row(
+      child: Column(
+        children: [
+          Padding(
+            padding: kDefaultPadding,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SvgPicture.asset(
-                  'assets/illustrations/Sample.svg',
-                  width: 50.rw,
+                SizedBox(height: 30.rh),
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/illustrations/Sample.svg',
+                      width: 50.rw,
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      'Hello, ${userController.readUsername()}',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 18.rh,
+                      ),
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  width: 15,
+                SizedBox(height: 40.rh),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Daily Tasks',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w800, fontSize: 22.rh),
+                    ),
+                    Text(
+                      'Edit',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18.rh,
+                        color: kPrimaryColor,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Hello, ${userController.readUsername()}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 18.rh,
-                  ),
-                )
+                SizedBox(height: 23.rh),
               ],
             ),
-            SizedBox(height: 40.rh),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Daily Tasks',
-                  style:
-                      TextStyle(fontWeight: FontWeight.w800, fontSize: 22.rh),
-                ),
-                Text(
-                  'Edit',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 18.rh,
-                    color: kPrimaryColor,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 23.rh),
-            Expanded(
-              child: TasksList(),
-            ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: TasksList(),
+          ),
+        ],
       ),
     );
   }

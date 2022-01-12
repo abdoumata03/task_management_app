@@ -1,27 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:task_management_app/Screens/home/models/task_model.dart';
 
 class TasksController extends GetxController {
  
- List<Task>? _tasks;
- List<Task>? get tasks => _tasks;
+ var tasks = <Task>[].obs;
  TextEditingController taskController = TextEditingController();
  final addTaskFormKey = GlobalKey<FormState>();
+ GetStorage tasksRepo = GetStorage();
 
 
- TasksController() {
-   _tasks = [
-     Task(id: '1', title: 'Go Play with the boys', isCompleted: false),
-      Task(id: '2', title: 'Debug Code', isCompleted: false),
-   ];
+@override
+  void onInit() {
+    List? storedTasks = tasksRepo.read<List>('tasks');
+    if (storedTasks != null) {
+      tasks = storedTasks.map((e) => Task.fromJson(e)).toList().obs;
+    }
+    ever(tasks, (_) {
+     tasksRepo.write('tasks', tasks.toList());
+    });
+    super.onInit();
+  }
 
- }
+//  TasksController() {
+//    tasks = [
+//      Task(title: 'Go Play with the boys'),
+//       Task(title: 'Debug Code'),
+//    ];
+
+//  }
 
  void addTask(Task task, BuildContext context) {
    if(addTaskFormKey.currentState!.validate()) {
-     
-     _tasks!.add(task);
+     tasks.add(task);
      update();
      addTaskFormKey.currentState!.reset();
      Navigator.pop(context);
@@ -38,8 +50,8 @@ class TasksController extends GetxController {
   }
 
  void toggleTasktile(Task task) {
-   int index = _tasks!.indexOf(task);
-   tasks![index].isCompleted = !tasks![index].isCompleted;
+   int index = tasks.indexOf(task);
+   tasks[index].isCompleted = !tasks[index].isCompleted;
    update();
  }
 
