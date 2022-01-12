@@ -8,18 +8,12 @@ TasksController tasksController = Get.find();
 
 class TaskTile extends StatelessWidget {
   final int currentIndex;
-  TaskTile({required this.currentIndex});
+  TaskTile({Key? key, required this.currentIndex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Dismissible(
+    return Container(
       key: UniqueKey(),
-      onDismissed: (_) {
-        if (tasksController.tasks[currentIndex].isCompleted) {
-          tasksController.tasks.removeAt(currentIndex);
-        }
-      },
-      child: Container(
         margin: EdgeInsets.only(bottom: 10.rh, right: 30.rw, left: 30.rw),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -31,7 +25,7 @@ class TaskTile extends StatelessWidget {
           title: Text(
             tasksController.tasks[currentIndex].title,
             style: (tasksController.tasks[currentIndex].isCompleted)
-                ? TextStyle(decoration: TextDecoration.lineThrough)
+                ? const TextStyle(decoration: TextDecoration.lineThrough)
                 : null,
           ),
           onTap: () {
@@ -49,8 +43,6 @@ class TaskTile extends StatelessWidget {
             ),
             fillColor: MaterialStateProperty.all<Color>(kSecondaryColor),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

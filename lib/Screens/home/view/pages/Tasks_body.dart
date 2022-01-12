@@ -44,23 +44,10 @@ class TasksBody extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 40.rh),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Daily Tasks',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w800, fontSize: 22.rh),
-                    ),
-                    Text(
-                      'Edit',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 18.rh,
-                        color: kPrimaryColor,
-                      ),
-                    ),
-                  ],
+                Text(
+                  'Daily Tasks',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w800, fontSize: 22.rh),
                 ),
                 SizedBox(height: 23.rh),
               ],
