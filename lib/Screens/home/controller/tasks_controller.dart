@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:task_management_app/Screens/home/models/task_model.dart';
+import 'package:task_management_app/core/utils/extensions.dart';
+import 'package:task_management_app/core/values/colors.dart';
 
 class TasksController extends GetxController {
   var tasks = <Task>[].obs;
@@ -45,10 +47,19 @@ class TasksController extends GetxController {
     update();
     Get.snackbar(
       'Task Removed',
-      '✔ ${removed.title}',
-      backgroundColor: Colors.white,
+      removed.title,
+      colorText: Colors.white,
+      padding: EdgeInsets.symmetric(horizontal: 30.rw, vertical: 20.rh),
+      backgroundColor: kDark,
       mainButton: TextButton(
-        child: Text('Undo'),
+        child: Text(
+          'Undo',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 17.rh,
+            color: Colors.blueAccent,
+          ),
+        ),
         onPressed: () {
           tasks.insert(index, removed!);
           update();

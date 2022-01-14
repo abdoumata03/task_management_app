@@ -28,11 +28,12 @@ class TaskTile extends StatelessWidget {
                 ? const TextStyle(decoration: TextDecoration.lineThrough)
                 : null,
           ),
+          enabled: !tasksController.tasks[currentIndex].isCompleted,
           onTap: () {
             tasksController.toggleTasktile(tasksController.tasks[currentIndex]);
           },
-          contentPadding: EdgeInsets.only(left: 25.rw, right: 10.rw),
-          trailing: Checkbox(
+          horizontalTitleGap: 5.rw,
+          leading: Checkbox(
             value: tasksController.tasks[currentIndex].isCompleted,
             onChanged: (val) {
               tasksController

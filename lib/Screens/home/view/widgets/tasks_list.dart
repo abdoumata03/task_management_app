@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_management_app/Screens/home/controller/tasks_controller.dart';
-import 'package:task_management_app/Screens/home/view/widgets/TaskTile.dart';
-import 'package:task_management_app/core/utils/extensions.dart';
-import 'package:task_management_app/core/values/colors.dart';
+import 'package:task_management_app/Screens/home/view/widgets/task_tile.dart';
+
 
 class TasksList extends StatelessWidget {
   @override

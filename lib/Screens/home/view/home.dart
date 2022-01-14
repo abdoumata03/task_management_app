@@ -103,15 +103,6 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(height: 35.rh),
-              Text(
-                'Add New Task',
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 25.rh,
-                  color: kDark,
-                ),
-              ),
-              SizedBox(height: 20.rh),
               Form(
                 key: tasksController.addTaskFormKey,
                 child: TextFormField(
