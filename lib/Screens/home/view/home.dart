@@ -109,9 +109,10 @@ class HomeScreen extends StatelessWidget {
                   autofocus: true,
                   controller: tasksController.taskController,
                   validator: tasksController.validateTask,
-                  maxLength: 25,
+                  maxLength: 30,
                   cursorColor: kSecondaryColor,
                   decoration: InputDecoration(
+                      hintText: 'Enter a task title',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide(
