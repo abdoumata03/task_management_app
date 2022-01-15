@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:task_management_app/Screens/username_screen/controller/username_controller.dart';
+import 'package:task_management_app/core/values/colors.dart';
 import 'package:task_management_app/routes/routes.dart';
 
 void main() async {
@@ -17,7 +18,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   UsernameController userController = Get.put(UsernameController());
   // This widget is the root of your application.
@@ -27,10 +28,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFF9F9F9),
-        fontFamily: 'Nunito',
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: kDark,
+              displayColor: kDark,
+              fontFamily: 'Nunito',
+            ),
       ),
       title: 'Task Management',
-      //home: WelcomeScreen(),
       initialRoute: userController.setInitialRoute(),
       getPages: Routes.routes,
     );

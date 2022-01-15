@@ -3,11 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:task_management_app/Screens/home/controller/tasks_controller.dart';
 import 'package:task_management_app/Screens/home/view/widgets/list_placeholder.dart';
-import 'package:task_management_app/Screens/home/view/widgets/task_tile.dart';
 import 'package:task_management_app/Screens/home/view/widgets/tasks_list.dart';
 import 'package:task_management_app/Screens/username_screen/controller/username_controller.dart';
 import 'package:task_management_app/core/utils/extensions.dart';
-import 'package:task_management_app/core/values/colors.dart';
 import 'package:task_management_app/core/values/styles.dart';
 
 class TasksBody extends StatelessWidget {
@@ -29,25 +27,6 @@ class TasksBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(height: 30.rh),
-                Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/illustrations/Sample.svg',
-                      width: 50.rw,
-                    ),
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    Text(
-                      'Hello, ${userController.readUsername()}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 18.rh,
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(height: 40.rh),
                 Text(
                   'Daily Tasks',
                   style:

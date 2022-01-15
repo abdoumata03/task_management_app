@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:task_management_app/Screens/home/controller/profile_controller.dart';
 import 'package:task_management_app/Screens/home/models/task_model.dart';
 import 'package:task_management_app/core/utils/extensions.dart';
 import 'package:task_management_app/core/values/colors.dart';
@@ -10,6 +11,7 @@ class TasksController extends GetxController {
   TextEditingController taskController = TextEditingController();
   final addTaskFormKey = GlobalKey<FormState>();
   GetStorage tasksRepo = GetStorage();
+  ProfileController profileCtrl = Get.put(ProfileController());
 
   @override
   void onInit() {

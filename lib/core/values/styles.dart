@@ -16,6 +16,33 @@ var paragraphTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
+var boxDecoration = BoxDecoration(
+  color: Colors.white,
+  borderRadius: const BorderRadius.only(
+    topLeft: Radius.circular(15),
+    topRight: Radius.circular(15),
+  ),
+  boxShadow: [
+    BoxShadow(
+      color: kGrey.withOpacity(0.2),
+      spreadRadius: 12,
+      blurRadius: 12,
+    )
+  ],
+);
+
+var profileCardDecoration = BoxDecoration(
+  borderRadius: BorderRadius.circular(15),
+  color: Colors.white,
+  boxShadow: [
+    BoxShadow(
+      blurRadius: 5,
+      spreadRadius: 5,
+      color: Colors.grey[100]!,
+    )
+  ],
+);
+
 var welcomeButtonStyle = TextButton.styleFrom(
   primary: Colors.white,
   textStyle: TextStyle(

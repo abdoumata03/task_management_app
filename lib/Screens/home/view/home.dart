@@ -38,22 +38,10 @@ class HomeScreen extends StatelessWidget {
   }
 
   Container buildBottomNavigationBar() {
+
     return Container(
       height: 100,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(15),
-          topRight: Radius.circular(15),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: kGrey.withOpacity(0.2),
-            spreadRadius: 12,
-            blurRadius: 12,
-          )
-        ],
-      ),
+      decoration: boxDecoration,
       child: ClipRRect(
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(15),

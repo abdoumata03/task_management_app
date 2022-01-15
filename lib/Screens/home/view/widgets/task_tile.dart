@@ -14,17 +14,18 @@ class TaskTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var boxDecoration = BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: tasksController.tasks[currentIndex].isCompleted
+                ? kAccentColor
+                : Colors.white,
+          );
     return SlideTransition(
       position: animationCtrl.offset,
       child: Container(
         key: UniqueKey(),
           margin: EdgeInsets.only(bottom: 10.rh, right: 30.rw, left: 30.rw),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: tasksController.tasks[currentIndex].isCompleted
-                ? kAccentColor
-                : Colors.white,
-          ),
+          decoration: boxDecoration,
           child: ListTile(
             title: Text(
               tasksController.tasks[currentIndex].title,
